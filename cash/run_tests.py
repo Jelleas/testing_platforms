@@ -12,5 +12,8 @@ for submission in get_submissions():
         os.mkdir("outputs")
 
     with open(output_path, "w") as f:
-        print(f"Testing - {submission_path} => {output_path}")
-        subprocess.call(["pytest", "--path", submission_path], stdout=f)
+        print(f"Testing - {submission_path} => {output_path}", end="", flush=True)
+        
+        exit_status = subprocess.call(["pytest", "--path", submission_path], stdout=f)
+
+        print(f"{'  ' if submission < 10 else ''} | {'FAILED' if exit_status else 'SUCCES'}")
