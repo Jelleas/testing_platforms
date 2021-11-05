@@ -2,7 +2,7 @@ import os
 import subprocess
 
 def get_submissions():
-    return sorted([int(dir_name) for dir_name in os.listdir("submissions")])
+    return sorted([int(dir_name) for dir_name in os.listdir("submissions") if not dir_name.startswith(".")])
 
 for submission in get_submissions():
     submission_path = f"submissions/{submission}/cash.py"
