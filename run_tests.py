@@ -2,7 +2,7 @@ import os
 import subprocess
 
 def get_submissions():
-    return sorted([int(dir_name) for dir_name in os.listdir("submissions") if not dir_name.startswith(".")])
+    return sorted([int(dir_name) for dir_name in os.listdir("submissions") if dir_name.isdigit()])
 
 if __name__ == "__main__":
     for submission in get_submissions():
